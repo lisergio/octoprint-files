@@ -1,0 +1,145 @@
+accessControl:
+  salt: MESqrGxc4SH1LqXqjoWsf2zjrmMNvV8E
+api:
+  key: 9B066C25730041GF9AD1FC08287B865B
+plugins:
+  announcements:
+    _config_version: 1
+    channels:
+      _blog:
+        read_until: 1512119700
+      _important:
+        read_until: 1509547500
+      _octopi:
+        read_until: 1499253000
+      _plugins:
+        read_until: 1512172800
+      _releases:
+        read_until: 1512745200
+  cura:
+    cura_engine: /usr/local/bin/cura_engine
+  discovery:
+    publicPort: 80
+    upnpUuid: 8ec176e1-4b89-489b-85e0-d22d56b92ceB
+  softwareupdate:
+    _config_version: 5
+    check_providers:
+      systemcommandeditor: eeprom_marlin
+      telegram: telegram
+      touchui: touchui
+    checks:
+      octoprint:
+        update_folder: /home/pi/OctoPrint
+  telegram:
+    _config_version: 3
+    chats:
+      '51152692':
+        accept_commands: true
+        allow_users: false
+        commands:
+          /abort: false
+          /con: false
+          /ctrl: false
+          /dontshutup: false
+          /files: false
+          /help: false
+          /print: false
+          /settings: false
+          /shutup: false
+          /status: false
+          /sys: false
+          /test: false
+          /togglepause: false
+          /tune: false
+          /upload: false
+          /user: false
+          'No': false
+          'Yes': false
+        id: '51152692'
+        image: /plugin/telegram/img/user/pic51152692.jpg?1511909664652
+        new: false
+        newUsr: false
+        notifications:
+          PrintDone: true
+          PrintFailed: true
+          PrintPaused: true
+          PrintResumed: true
+          PrintStarted: true
+          PrinterShutdown: true
+          PrinterStart: true
+          StatusNotPrinting: false
+          StatusPrinting: false
+          ZChange: false
+        private: true
+        send_notifications: true
+        title: 'Lisergio - '
+    image_not_connected: false
+    messages:
+      PrintDone:
+        text: La impresión de {file} ha finalizado.
+      PrintFailed:
+        text: La impresión de {file} ha fallado.
+      PrintPaused:
+        text: Detenida la impresionanteón de {file} al {percent}%. Queda {time_left}
+          .
+      PrintResumed:
+        text: Continuando la impresión de {file} al {percent}%. Queda {time_left}
+          .
+      PrintStarted:
+        image: false
+        text: Iniciando impresión de {file}.
+      PrinterShutdown:
+        text: '{emo:octo} {emo:shutdown} Apagando servidor de impresión.'
+      PrinterStart:
+        text: '{emo:octo} Se acaba de iniciar el servidor de impresión OCTOPRINT.'
+      StatusNotPrinting:
+        image: false
+      StatusPrinting:
+        combined: true
+      ZChange:
+        image: false
+    notification_height: '10'
+    notification_time: '30'
+    send_icon: false
+    token: 014097220:AAG2hlykzUZ35KIiEKluwONwWjp5TqOwnCw
+  touchui:
+    useCustomization: true
+printerProfiles: {}
+serial:
+  autoconnect: true
+  baudrate: 0
+  port: /dev/ttyACM0
+server:
+  commands:
+    serverRestartCommand: sudo service octoprint restart
+    systemRestartCommand: sudo shutdown -r now
+    systemShutdownCommand: sudo shutdown -h now
+  firstRun: false
+  onlineCheck:
+    enabled: false
+  secretKey: 1yXVyWOw1SKqJ4u0SgqijMRSIm8qXhk8
+  seenWizards:
+    corewizard: 1
+    cura: null
+    telegram: 1
+system:
+  actions:
+  - action: printer on
+    command: gpio -g write 17 1
+    name: Encender la impresora
+  - action: printer off
+    command: gpio -g write 17 0
+    confirm: ESTAS SEGURO DE APAGAR LA IMPRESORA?.
+    name: Apagar la impresora
+temperature:
+  profiles:
+  - bed: '90'
+    extruder: '240'
+    name: ABS
+  - bed: 60
+    extruder: '200'
+    name: PLA
+webcam:
+  ffmpeg: /usr/bin/avconv
+  snapshot: http://127.0.0.1:8080/?action=snapshot
+  stream: /webcam/?action=stream
